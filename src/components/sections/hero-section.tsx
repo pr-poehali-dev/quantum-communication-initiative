@@ -77,9 +77,14 @@ export function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.8 }}
       >
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-center text-foreground mix-blend-difference">
-          Ваши работы, <em className="italic">в фокусе</em>.
-        </h1>
+        <div className="text-center">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-center text-foreground mix-blend-difference">
+            Видео, которое <em className="italic">говорит</em>.
+          </h1>
+          <p className="mt-6 text-lg md:text-xl text-foreground/60 mix-blend-difference">
+            Видеограф · Монтаж · Сторителлинг
+          </p>
+        </div>
       </motion.div>
 
       <motion.div

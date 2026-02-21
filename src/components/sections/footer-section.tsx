@@ -1,27 +1,22 @@
-import { useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
 const footerLinks = [
-  { label: "Шаблоны", href: "#" },
-  { label: "Галерея", href: "#" },
-  { label: "Цены", href: "#" },
-  { label: "Войти", href: "#" },
+  { label: "Работы", href: "#" },
+  { label: "Кейсы", href: "#" },
+  { label: "Тарифы", href: "#" },
+  { label: "Связаться", href: "#" },
 ]
 
 export function FooterSection() {
-  const [email, setEmail] = useState("")
-
   return (
     <footer className="relative bg-background px-6 py-24 overflow-hidden">
-      {/* Gradient blob */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-tr from-purple-300 via-purple-200 to-lime-200 opacity-40 blur-3xl rounded-full" />
       </div>
 
       <div className="relative max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-end">
-          {/* Logo and links */}
           <div>
             <motion.h2
               className="text-6xl md:text-8xl font-serif text-foreground"
@@ -50,36 +45,29 @@ export function FooterSection() {
             </nav>
           </div>
 
-          {/* Email signup */}
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="text-muted-foreground text-sm mb-4">Получайте новости о шаблонах и обновлениях.</p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Введите email"
-                className="flex-1 bg-secondary border-0 rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <button
-                type="submit"
-                className="bg-foreground text-background p-3 rounded-lg hover:bg-foreground/90 transition-colors"
-                data-clickable
-              >
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </form>
+            <p className="text-muted-foreground text-sm mb-4">
+              Готовы снять что-то крутое? Напишите — обсудим проект.
+            </p>
+            <a
+              href="mailto:hello@example.com"
+              className="group inline-flex items-center gap-3 bg-foreground text-background px-6 py-3 rounded-lg hover:bg-foreground/90 transition-colors font-medium"
+              data-clickable
+            >
+              Написать мне
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
           </motion.div>
         </div>
 
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm">2025 FOLIO. Все права защищены.</p>
+          <p className="text-muted-foreground text-sm">2025 · Видеограф · Все права защищены</p>
           <div className="flex gap-6">
             <a href="#" className="text-muted-foreground hover:text-foreground text-sm" data-clickable>
-              Конфиденциальность
+              Telegram
             </a>
             <a href="#" className="text-muted-foreground hover:text-foreground text-sm" data-clickable>
-              Условия
+              Instagram
             </a>
           </div>
         </div>

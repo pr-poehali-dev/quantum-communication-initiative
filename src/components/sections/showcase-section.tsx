@@ -1,10 +1,22 @@
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 
-const showcaseImages = [
-  "/modern-architecture-building-exterior-minimal.jpg",
-  "/fashion-model-editorial-portrait-dramatic-lighting.jpg",
-  "/interior-design-minimalist-living-room-natural-lig.jpg",
+const showcaseItems = [
+  {
+    src: "/modern-architecture-building-exterior-minimal.jpg",
+    title: "Корпоративный фильм",
+    tag: "Бизнес",
+  },
+  {
+    src: "/fashion-model-editorial-portrait-dramatic-lighting.jpg",
+    title: "Рекламный ролик",
+    tag: "Бренд",
+  },
+  {
+    src: "/interior-design-minimalist-living-room-natural-lig.jpg",
+    title: "Документальный проект",
+    tag: "Доку",
+  },
 ]
 
 export function ShowcaseSection() {
@@ -29,11 +41,11 @@ export function ShowcaseSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Галерея
+          Работы
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {showcaseImages.map((src, i) => (
+          {showcaseItems.map((item, i) => (
             <motion.div
               key={i}
               className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden group"
@@ -49,12 +61,17 @@ export function ShowcaseSection() {
               data-clickable
             >
               <motion.img
-                src={src}
-                alt={`Изображение ${i + 1}`}
+                src={item.src}
+                alt={item.title}
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                <span className="text-xs text-white/60 uppercase tracking-widest">{item.tag}</span>
+                <h3 className="font-serif text-xl text-white mt-1">{item.title}</h3>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -3,25 +3,25 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
-const articles = [
+const cases = [
   {
-    title: "Искусство визуального сторителлинга",
-    category: "Дизайн",
+    title: "Имиджевый фильм для IT-компании",
+    category: "Корпоративное",
     image: "/visual-storytelling-design-article.jpg",
   },
   {
-    title: "Как создать личный бренд онлайн",
-    category: "Стратегия",
+    title: "Рекламный ролик для ресторана",
+    category: "Реклама",
     image: "/personal-branding-digital-marketing.jpg",
   },
   {
-    title: "Тренды типографики 2025",
-    category: "Типографика",
+    title: "Документальный проект о производстве",
+    category: "Документальное",
     image: "/typography-trends-modern-fonts.jpg",
   },
   {
-    title: "Минимализм в дизайне портфолио",
-    category: "Вдохновение",
+    title: "Социальные видео для бренда одежды",
+    category: "SMM / Reels",
     image: "/placeholder.svg?height=200&width=300",
   },
 ]
@@ -43,11 +43,11 @@ export function InsightsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Статьи
+          Кейсы
         </motion.p>
 
         <div className="divide-y divide-border">
-          {articles.map((article, i) => (
+          {cases.map((item, i) => (
             <motion.a
               key={i}
               href="#"
@@ -62,9 +62,9 @@ export function InsightsSection() {
               data-clickable
             >
               <div className="flex-1">
-                <span className="text-xs text-muted-foreground uppercase tracking-wider">{article.category}</span>
+                <span className="text-xs text-muted-foreground uppercase tracking-wider">{item.category}</span>
                 <h3 className="font-serif text-xl md:text-2xl text-foreground mt-1 group-hover:text-primary transition-colors">
-                  {article.title}
+                  {item.title}
                 </h3>
               </div>
               <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
@@ -72,7 +72,6 @@ export function InsightsSection() {
           ))}
         </div>
 
-        {/* Floating hover image */}
         <AnimatePresence>
           {hoveredIndex !== null && (
             <motion.div
@@ -88,8 +87,8 @@ export function InsightsSection() {
               transition={{ duration: 0.2 }}
             >
               <img
-                src={articles[hoveredIndex].image || "/placeholder.svg"}
-                alt={articles[hoveredIndex].title}
+                src={cases[hoveredIndex].image || "/placeholder.svg"}
+                alt={cases[hoveredIndex].title}
                 className="w-full h-auto"
               />
             </motion.div>
